@@ -1,0 +1,200 @@
+﻿
+
+<html>
+<head>
+    <title>Rephael Congmon Website</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="class.css">
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115810598-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115810598-1');
+</script>
+
+
+
+<script type="text/javascript">
+		//Capture and handle scroll events
+		window.onscroll = function() {
+			//Manage Top Bar Links
+			var inst = document.getElementById("banner-link-bar");
+			if (document.body.scrollTop > 420) {
+				inst.className = "banner-links-under";
+			}
+			else {
+				if (inst.className == "banner-links-under" && document.body.scrollTop > 120)
+					inst.className = "banner-links-up";
+				else
+				if (document.body.scrollTop <= 120 && inst.className == "banner-links-up")
+					inst.className = "banner-links";
+			}
+		}
+</script>
+
+<body>
+    <!-- Banner and Video BG -->
+    <div class="banner">
+        <div class="banner-bg"></div>
+        <div class="banner-bg-screen"></div>
+        <table class="banner-text">
+            <tr>
+                <td valign="center">
+                    <div class="title">
+                        Rephael Congmon
+                    </div>
+                    <div class="description">
+                        My Portfolio
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="banner-link-bar" class="banner-links">
+            <div class="banner-links-inner">
+                <a href="index.php"><img class="img-top" src="../images/navi_back.png" /></a>
+                <div class="site-txt">
+                    CLICK ME!
+                </div>
+                <!-- Because of "float:right", these must go in reverse order -->
+                <a href="rephael.net" class="no-dec">
+                    <div class="banner-link">
+                        HOME
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Fun stuff here -->
+    <!-- Fun stuff here -->
+    <style type="text/css">
+        table.nt {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+            table.nt tr.bt td {
+                border-bottom: 1px solid black;
+            }
+    </style>
+
+    <!-- Introduction -->
+    <div class="section">
+        <div class="section-inner ltbtm-border">
+            <div class="title">
+                <span class="titletxt">INTRODUCTION</span>
+                <br />
+                <br />
+                
+                <iframe src="https://open.spotify.com/embed?uri=spotify:track:3zUiDGcm1aRs4SkbbzZMF8" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+            <div class="text">
+
+            </div>
+
+            <div class="zoomin">
+                <img id="cookie" oncontextmenu="return false" ondragstart="return false"
+                     src="Images/PerfectCookie.png" />
+                <span class="cookieToolTip" id="tooltip">This is a picture of a cookie.</span>
+            </div>
+
+            <div class="text">
+                Website developed to test out some code. 
+                </br></br>
+            </div>
+
+
+
+            </div>
+    </div>
+
+    <script src="jquery.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            const numberWithCommas = (x) => {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+
+            var amountOfCookieClicks = 0;
+
+            var isAnimating = $("#someid").is(':animated');
+            $('#cookie').mouseover(function () {
+                $('#tooltip').css({ "opacity": 1, "visibility": "visible" });
+                $('#tooltip').html('This cookie has been clicked ' + numberWithCommas(amountOfCookieClicks) + ' times.');
+                $('#cookie').addClass('cookieHover');
+
+            });
+
+
+            $('#cookie').mouseleave(function () {
+                $('#tooltip').css({ opacity: 0, visibility: "hidden" });
+                $('#cookie').removeClass('bounceIn');
+                $('#cookie').removeClass('cookieHover');
+            });
+
+
+            var cookiePressed = 0;
+
+
+            
+            $('#cookie').on('mousedown', function () {
+                cookiePressed += 1;
+                $('#cookie').addClass('cookieClickDown');
+                $('#cookie').removeClass('bounceIn');
+
+            });
+
+            $('#cookie').on('mouseup', function () {
+                $('#cookie').addClass('bounceIn');
+                $('#cookie').removeClass('cookieClickDown');
+
+            });
+            
+            $('#cookie').on('click', function () {
+                amountOfCookieClicks += 1;
+                $('#tooltip').html('This cookie has been clicked ' + numberWithCommas(amountOfCookieClicks) + ' times.');
+            });
+
+
+            /*
+            $("#cookie").click(function () {
+   
+                $('#cookie').addClass('bounceIn');
+                if ((cookiePressed == 1) && $('#cookie').hasClass('bounceIn')) {
+                    alert('hey');
+                }
+
+      
+            });
+            */
+
+        });
+
+    </script>
+
+    <script>
+        var tooltip = document.querySelectorAll('.cookieToolTip');
+
+        document.addEventListener('mousemove', fn, false);
+
+        function fn(e) {
+
+            for (var i = tooltip.length; i--;) {
+                tooltip[i].style.left = e.pageX + 'px';
+                tooltip[i].style.top = e.pageY + 'px';
+            }
+        }
+    </script>
+
+</body>
+</html>

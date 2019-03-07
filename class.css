@@ -1,0 +1,31 @@
+﻿/* Ensure that main.css is included first before doing       */
+/* something stupid. It is a dependency for this stylesheet. */
+/* ~Clara Nguyen                                             */
+
+@font-face {
+    font-family: inconsolata;
+    src: url("../font/inconsolata.otf");
+}
+
+div.lab-letter {
+    font-size: 400%;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+}
+
+span.lab-section {
+    font-size: 150%;
+}
+
+pre {
+    border: 1px solid #666;
+    padding: 4px;
+    overflow-x: auto;
+}
+
+pre, code {
+    font-family: inconsolata;
+    font-size: 90%;
+    tab-size: 4;
+}
