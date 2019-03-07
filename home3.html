@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="style.css">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="test.css">
+
+  </head>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src = "jquery.js"></script>
+  <body>
+
+    <div class="container">
+      <span id = "botTitle" class="text1">ROFEL Bot</span>
+      <span id = "Level" class="text2"></span>
+      <div id='xp-bar'>
+          <div id='xp-bar-fill'>
+            <div id='xp-increase-fx'><div id='xp-increase-fx-flicker'><div class='xp-increase-glow1'></div><div class='xp-increase-glow2'></div><div class='xp-increase-glow3'></div></div><div class='xp-increase-glow2'></div></div>
+          </div>
+        </div>
+        <div id='account-bar-next-level'>6</div>
+    </div>
+
+  </body>
+</html>
+
+
+
+
+<script>
+
+  let xString = "5%";
+
+// $(document).ready(function (){
+//   $('#xp-bar').fadeIn(1000);
+// });
+
+function flicker(){
+  $("#xp-increase-fx-flicker").css("opacity", "1");
+  $("#xp-increase-fx-flicker").animate({"opacity":Math.random()}, 100, flicker);
+}
+
+
+$(document).ready(function(){
+  flicker();
+});
+
+function doit(x){
+  $("#xp-increase-fx").css("display","inline-block");
+  $("#xp-bar-fill").css("box-shadow",/*"0px 0px 15px #06f,*/ "-5px 0px 10px #fff inset");
+  
+  
+  setTimeout(function(){$("#xp-bar-fill").css("-webkit-transition","all 2s ease");
+  $("#xp-bar-fill").css("width",`${x}`);},100);
+  
+  console.log("This ran");
+  
+  setTimeout(function(){$("#xp-increase-fx").fadeOut(500);$("#xp-bar-fill").css({"-webkit-transition":"all 0.5s ease","box-shadow":""});},2000);
+  setTimeout(function(){$("#xp-bar-fill").css({"width":`${x}`});},3000);
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  $('#xp-bar').hide();  
+  $('#account-bar-next-level').hide();
+  setTimeout(function(){
+        $('#xp-bar').fadeIn(1000);
+        $('#account-bar-next-level').fadeIn(1000);
+        doit(xString);
+    }, 3000);
+    //doit();
+  });
+
+
+  document.getElementById("Level").innerHTML = `LEVEL 5`;
+
+
+//   document.addEventListener("DOMContentLoaded", function() {
+//   //flicker();
+//     $('#xp-bar').fadeIn(1000).delay(1000);
+
+// });
+
+</script>
