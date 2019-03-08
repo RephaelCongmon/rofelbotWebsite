@@ -15,7 +15,7 @@
         $conn = new PDO($dsn);
 
         if ($conn){
-            debug_to_console("Connected to the database successfully!")
+            debug_to_console("Connected to the database successfully!");
         }
     }catch (PDOException $e){
         echo $e->getMessage();
