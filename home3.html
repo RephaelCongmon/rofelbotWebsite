@@ -179,7 +179,9 @@ console.log("botXP OUTSIDE = ", botXP);
 console.log("xp required OUTSIDE = ", nextLevelXP);
 
 difference = (requiredXP - prevLevelXP);  //5,624 -  5,018
-let currBotXP = botXP - prevLevelXP
+let currBotXP = botXP - prevLevelXP;
+console.log("current Bot xp = ", currBotXP);
+console.log("Difference = ", difference);
 remainingXP = (requiredXP - botXP);
 percent = ( currBotXP / difference) * 100;
 console.log("Percent 1 = ", percent);
