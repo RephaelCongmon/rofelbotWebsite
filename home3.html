@@ -24,6 +24,8 @@
           </div>
         </div>
         <div id='account-bar-next-level'></div>
+        <div id='botXPCurrent'></div>
+        <div id='botXPLeft'></div>
     </div>
 
   </body>
@@ -168,6 +170,8 @@ console.log("xp required OUTSIDE = ", nextLevelXP);
 percent = (botXP / nextLevelXP) * 100;
 console.log("Percent 1 = ", percent);
 
+botXP = numberWithCommas(botXP);
+nextLevelXP = numberWithCommas(nextLevelXP);
 percent = percent.toFixed(0);
 console.log("Percent 2 = ", percent);
 
@@ -211,9 +215,13 @@ console.log("Percent 5 = ", percent);
 document.addEventListener("DOMContentLoaded", function() {
   $('#xp-bar').hide();  
   $('#account-bar-next-level').hide();
+  $('#botXPCurrent').hide();
+  $('#botXPLeft').hide();
   setTimeout(function(){
         $('#xp-bar').fadeIn(1000);
         $('#account-bar-next-level').fadeIn(1000);
+        $('#botXPCurrent').fadeIn(1000);
+        $('#botXPLeft').fadeIn(1000);
         doit(percent);
     }, 3000);
     //doit();
@@ -222,6 +230,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
   document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
+  document.getElementById("botXPCurrent").innerHTML = `${botXP}`;
+  document.getElementById("botXPLeft").innerHTML = `${nextLevelXP}`;
 
 
 //   document.addEventListener("DOMContentLoaded", function() {
