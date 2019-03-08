@@ -90,6 +90,7 @@ $.ajax({
 
     console.log("botLevel = ", botLevel);
     console.log("botXP = ", botXP);
+    console.log("xp required = ", nextLevelXP);
     // for (var i = 0; i < data.length; i++){
     //   console.log(`Data[${i}] = ${data[i]}`);
     // }
@@ -99,13 +100,21 @@ $.ajax({
 botLevel = numberWithCommas(botLevel);
 botNextLevel = numberWithCommas(botNextLevel);
 
+console.log("botXP OUTSIDE = ", botXP);
+console.log("xp required OUTSIDE = ", nextLevelXP);
+
 let percent = (botXP / nextLevelXP) * 100;
+console.log("Percent 1 = ", percent);
+
 percent = percent.toFixed(0);
+console.log("Percent 2 = ", percent);
 
 percent = percent.toString();
+console.log("Percent 3 = ", percent);
 percent = percent + "%";
+console.log("Percent 4 = ", percent);
 
-console.log("Percent = ", percent);
+console.log("Percent 5 = ", percent);
 
 
 // $(document).ready(function (){
