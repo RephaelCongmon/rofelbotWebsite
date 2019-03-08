@@ -15,12 +15,15 @@
         $conn = new PDO($dsn);
 
         if ($conn){
-            debug_to_console("Connected to the database successfully!");
+            //debug_to_console("Connected to the database successfully!");
+            $result = $conn->query("SELECT * FROM xp WHERE id = 'botstats'");
+            echo $result;
         }
     }catch (PDOException $e){
         echo $e->getMessage();
     }
 
-    debug_to_console("Test");
+    
+    //debug_to_console("Test");
 ?>
 
