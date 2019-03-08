@@ -73,11 +73,11 @@ $.ajax({
   url: 'data.php',
   success: function(data){
     console.log(data);
-    let phpData = data[1];
+    let phpData = JSON.parse(data);
     console.log("phpData = ", phpData);
-    for (var i = 0; i < data.length; i++){
-      console.log(`Data[${i}] = ${data[i]}`);
-    }
+    // for (var i = 0; i < data.length; i++){
+    //   console.log(`Data[${i}] = ${data[i]}`);
+    // }
   }
 });
 
