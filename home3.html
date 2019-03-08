@@ -28,6 +28,7 @@
         <br />
         <br />
         <div id='botXPCurrent'></div>
+        <div id='botXPNext'></div>
         <div id='botXPLeft'></div>
     </div>
 
@@ -250,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
   document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
   document.getElementById("botXPCurrent").innerHTML = `Total Bot XP:    ${botXP}`;
+  document.getElementById("botXPNext").innerHTML = `Next Level XP:     ${requiredXP}`;
   document.getElementById("botXPLeft").innerHTML = `Remaining XP:    ${remainingXP}`;
 
 
