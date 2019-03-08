@@ -100,6 +100,7 @@ var botLevel;
 var botNextLevel;
 var nextLevelXP;
 var percent;
+var remainingXP;
 
 $.ajax({
   type: "GET",
@@ -167,11 +168,13 @@ botNextLevel = numberWithCommas(botNextLevel);
 console.log("botXP OUTSIDE = ", botXP);
 console.log("xp required OUTSIDE = ", nextLevelXP);
 
+remainingXP = (nextLevelXP - botXP);
 percent = (botXP / nextLevelXP) * 100;
 console.log("Percent 1 = ", percent);
 
 botXP = numberWithCommas(botXP);
 nextLevelXP = numberWithCommas(nextLevelXP);
+remainingXP = numberWithCommas(remainingXP);
 percent = percent.toFixed(0);
 console.log("Percent 2 = ", percent);
 
@@ -230,8 +233,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
   document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
-  document.getElementById("botXPCurrent").innerHTML = `${botXP}`;
-  document.getElementById("botXPLeft").innerHTML = `${nextLevelXP}`;
+  document.getElementById("botXPCurrent").innerHTML = `Total Bot XP: ${botXP}`;
+  document.getElementById("botXPLeft").innerHTML = `Remaining XP: ${remainingXP}`;
 
 
 //   document.addEventListener("DOMContentLoaded", function() {
