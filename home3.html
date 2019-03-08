@@ -104,6 +104,8 @@ var botNextLevel;
 var nextLevelXP;
 var percent;
 var remainingXP;
+var requiredXP;
+var difference;
 
 $.ajax({
   type: "GET",
@@ -118,6 +120,7 @@ $.ajax({
     botNextLevel = botLevel + 1;
     botXP = parseInt(phpData.userxp, 10);
     
+    requiredXP = getXPRequired(botLevel);
     nextLevelXP = getXPRequired(botNextLevel);
 
     console.log("botLevel = ", botLevel);
@@ -171,13 +174,16 @@ botNextLevel = numberWithCommas(botNextLevel);
 console.log("botXP OUTSIDE = ", botXP);
 console.log("xp required OUTSIDE = ", nextLevelXP);
 
-remainingXP = (nextLevelXP - botXP);
-percent = (botXP / nextLevelXP) * 100;
+difference = (nextLevelXP - requiredXP);
+
+remainingXP = (requiredXP - botXP);
+percent = (remainingXP / difference) * 100;
 console.log("Percent 1 = ", percent);
 
 botXP = numberWithCommas(botXP);
 nextLevelXP = numberWithCommas(nextLevelXP);
 remainingXP = numberWithCommas(remainingXP);
+requiredXP = numberWithCommas(requiredXP);
 percent = percent.toFixed(0);
 console.log("Percent 2 = ", percent);
 
