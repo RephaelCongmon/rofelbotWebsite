@@ -102,6 +102,7 @@ var percent;
 $.ajax({
   type: "GET",
   url: 'data.php',
+  async: false,
   success: function(data){
     console.log(data);
     let phpData = JSON.parse(data);
