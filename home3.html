@@ -55,13 +55,28 @@
 //     console.log('Connected to PostgresSQL');
 // });
 
+function getXPRequired(x){
+    let botNextLevelXP = 0;
+    let retVal = 0;
+    for (i = 1; i <= x; i++){
+        botNextLevelXP += Math.floor(i + 300 * Math.pow(2, i /7.));
+        retVal = Math.floor(botNextLevelXP / 4);
+    }
+    return retVal;
+}
+
+let botXP = 0;
+let botLevel = 0;
+
 $.ajax({
   type: "GET",
   url: 'data.php',
   success: function(data){
-    alert(data);
+    console.log(data);
   }
 });
+
+
 
 let xString = "5%";
 
