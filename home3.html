@@ -23,7 +23,7 @@
             <div id='xp-increase-fx'><div id='xp-increase-fx-flicker'><div class='xp-increase-glow1'></div><div class='xp-increase-glow2'></div><div class='xp-increase-glow3'></div></div><div class='xp-increase-glow2'></div></div>
           </div>
         </div>
-        <div id='account-bar-next-level'>6</div>
+        <div id='account-bar-next-level'></div>
     </div>
 
   </body>
@@ -65,8 +65,14 @@ function getXPRequired(x){
     return retVal;
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 let botXP = 0;
 let botLevel = 0;
+let botNextLevel = 0;
+let nextLevelXP = 0;
 
 $.ajax({
   type: "GET",
@@ -77,7 +83,10 @@ $.ajax({
     console.log("phpData = ", phpData);
 
     botLevel = parseInt(phpData.userlevel, 10);
+    botNextLevel = botLevel + 1;
     botXP = parseInt(phpData.userxp, 10);
+    
+    nextLevelXP = getXPRequired(botNextLevel);
 
     console.log("botLevel = ", botLevel);
     console.log("botXP = ", botXP);
@@ -87,9 +96,17 @@ $.ajax({
   }
 });
 
+botLevel = numberWithCommas(botLevel);
+botNextLevel = numberWithCommas(botNextLevel);
 
+let percent = (botXP / nextLevelXP) * 100;
+percent = percent.toFixed(0);
 
-let xString = "5%";
+percent = percent.toString();
+percent = percent + "%";
+
+console.log("Percent = ", percent);
+
 
 // $(document).ready(function (){
 //   $('#xp-bar').fadeIn(1000);
@@ -126,13 +143,14 @@ document.addEventListener("DOMContentLoaded", function() {
   setTimeout(function(){
         $('#xp-bar').fadeIn(1000);
         $('#account-bar-next-level').fadeIn(1000);
-        doit(xString);
+        doit(percent);
     }, 3000);
     //doit();
   });
 
 
-  document.getElementById("Level").innerHTML = `LEVEL 5`;
+  document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
+  document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
 
 
 //   document.addEventListener("DOMContentLoaded", function() {
