@@ -16,7 +16,13 @@
 
         if ($conn){
             //debug_to_console("Connected to the database successfully!");
-            $result = $conn->query("SELECT * FROM xp WHERE id = 'botstats'");
+            $stmt = $conn->prepare('SELECT * FROM xp WHERE id = ?');
+            $id = "botstats";
+
+            $stmt->execute([$id]);
+            $result = $stmt->fetch();
+            
+            // $result = $conn->query("SELECT * FROM xp WHERE id = 'botstats'");
             debug_to_console($result);
         }
     }catch (PDOException $e){
