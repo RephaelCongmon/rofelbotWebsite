@@ -93,10 +93,11 @@ function doit(x){
   setTimeout(function(){$("#xp-bar-fill").css({"width":`${x}`});},3000);
 }
 
-let botXP = 0;
-let botLevel = 0;
-let botNextLevel = 0;
-let nextLevelXP = 0;
+var botXP = 0;
+var botLevel = 0;
+var botNextLevel = 0;
+var nextLevelXP = 0;
+var percent;
 
 $.ajax({
   type: "GET",
@@ -117,64 +118,64 @@ $.ajax({
     console.log("xp required = ", nextLevelXP);
 
 
-    botLevel = numberWithCommas(botLevel);
-  botNextLevel = numberWithCommas(botNextLevel);
+  //   botLevel = numberWithCommas(botLevel);
+  // botNextLevel = numberWithCommas(botNextLevel);
 
-  console.log("botXP OUTSIDE = ", botXP);
-  console.log("xp required OUTSIDE = ", nextLevelXP);
+  // console.log("botXP OUTSIDE = ", botXP);
+  // console.log("xp required OUTSIDE = ", nextLevelXP);
 
-  let percent = (botXP / nextLevelXP) * 100;
-  console.log("Percent 1 = ", percent);
+  // let percent = (botXP / nextLevelXP) * 100;
+  // console.log("Percent 1 = ", percent);
 
-  percent = percent.toFixed(0);
-  console.log("Percent 2 = ", percent);
+  // percent = percent.toFixed(0);
+  // console.log("Percent 2 = ", percent);
 
-  percent = percent.toString();
-  console.log("Percent 3 = ", percent);
-  percent = percent + "%";
-  console.log("Percent 4 = ", percent);
+  // percent = percent.toString();
+  // console.log("Percent 3 = ", percent);
+  // percent = percent + "%";
+  // console.log("Percent 4 = ", percent);
 
-  console.log("Percent 5 = ", percent);
-
-
-  document.addEventListener("DOMContentLoaded", function() {
-  $('#xp-bar').hide();  
-  $('#account-bar-next-level').hide();
-  setTimeout(function(){
-        $('#xp-bar').fadeIn(1000);
-        $('#account-bar-next-level').fadeIn(1000);
-        doit(percent);
-    }, 3000);
-    //doit();
-  });
+  // console.log("Percent 5 = ", percent);
 
 
-  document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
-  document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
-    // for (var i = 0; i < data.length; i++){
-    //   console.log(`Data[${i}] = ${data[i]}`);
+  // document.addEventListener("DOMContentLoaded", function() {
+  // $('#xp-bar').hide();  
+  // $('#account-bar-next-level').hide();
+  // setTimeout(function(){
+  //       $('#xp-bar').fadeIn(1000);
+  //       $('#account-bar-next-level').fadeIn(1000);
+  //       doit(percent);
+  //   }, 3000);
+  //   //doit();
+  // });
+
+
+  // document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
+  // document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
+  //   // for (var i = 0; i < data.length; i++){
+  //   //   console.log(`Data[${i}] = ${data[i]}`);
     // }
   }
 });
 
-// botLevel = numberWithCommas(botLevel);
-// botNextLevel = numberWithCommas(botNextLevel);
+botLevel = numberWithCommas(botLevel);
+botNextLevel = numberWithCommas(botNextLevel);
 
-// console.log("botXP OUTSIDE = ", botXP);
-// console.log("xp required OUTSIDE = ", nextLevelXP);
+console.log("botXP OUTSIDE = ", botXP);
+console.log("xp required OUTSIDE = ", nextLevelXP);
 
-// let percent = (botXP / nextLevelXP) * 100;
-// console.log("Percent 1 = ", percent);
+let percent = (botXP / nextLevelXP) * 100;
+console.log("Percent 1 = ", percent);
 
-// percent = percent.toFixed(0);
-// console.log("Percent 2 = ", percent);
+percent = percent.toFixed(0);
+console.log("Percent 2 = ", percent);
 
-// percent = percent.toString();
-// console.log("Percent 3 = ", percent);
-// percent = percent + "%";
-// console.log("Percent 4 = ", percent);
+percent = percent.toString();
+console.log("Percent 3 = ", percent);
+percent = percent + "%";
+console.log("Percent 4 = ", percent);
 
-// console.log("Percent 5 = ", percent);
+console.log("Percent 5 = ", percent);
 
 
 // $(document).ready(function (){
@@ -206,26 +207,26 @@ $.ajax({
 // }
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   $('#xp-bar').hide();  
-//   $('#account-bar-next-level').hide();
-//   setTimeout(function(){
-//         $('#xp-bar').fadeIn(1000);
-//         $('#account-bar-next-level').fadeIn(1000);
-//         doit(percent);
-//     }, 3000);
-//     //doit();
-//   });
+document.addEventListener("DOMContentLoaded", function() {
+  $('#xp-bar').hide();  
+  $('#account-bar-next-level').hide();
+  setTimeout(function(){
+        $('#xp-bar').fadeIn(1000);
+        $('#account-bar-next-level').fadeIn(1000);
+        doit(percent);
+    }, 3000);
+    //doit();
+  });
 
 
-//   document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
-//   document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
+  document.getElementById("Level").innerHTML = `LEVEL ${botLevel}`;
+  document.getElementById("account-bar-next-level").innerHTML = `${botNextLevel}`;
 
 
-//   document.addEventListener("DOMContentLoaded", function() {
-//   //flicker();
-//     $('#xp-bar').fadeIn(1000).delay(1000);
+  document.addEventListener("DOMContentLoaded", function() {
+  //flicker();
+    $('#xp-bar').fadeIn(1000).delay(1000);
 
-// });
+});
 
 </script>
