@@ -17,7 +17,7 @@
         if ($conn){
             //debug_to_console("Connected to the database successfully!");
             $result = $conn->query("SELECT * FROM xp WHERE id = 'botstats'");
-            echo $result;
+            debug_to_console($result);
         }
     }catch (PDOException $e){
         echo $e->getMessage();
