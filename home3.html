@@ -73,7 +73,7 @@ $.ajax({
   url: 'data.php',
   success: function(data){
     console.log(data);
-    var phpData = JSON.parse(data);
+    let phpData = data[1];
     console.log("phpData = ", phpData);
   }
 });
