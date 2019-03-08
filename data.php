@@ -23,7 +23,7 @@
             $result = $stmt->fetch();
             
             // $result = $conn->query("SELECT * FROM xp WHERE id = 'botstats'");
-            echo $result;
+            echo json_encode($result);
         }
     }catch (PDOException $e){
         echo $e->getMessage();
