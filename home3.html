@@ -93,10 +93,10 @@ function doit(x){
   setTimeout(function(){$("#xp-bar-fill").css({"width":`${x}`});},3000);
 }
 
-var botXP = 0;
-var botLevel = 0;
-var botNextLevel = 0;
-var nextLevelXP = 0;
+var botXP;
+var botLevel;
+var botNextLevel;
+var nextLevelXP;
 var percent;
 
 $.ajax({
