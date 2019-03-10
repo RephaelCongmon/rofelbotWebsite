@@ -30,6 +30,9 @@
         <div id='botXPCurrent'></div>
         <div id='botXPNext'></div>
         <div id='botXPLeft'></div>
+        <br />
+        <div id='botTotalMessages'></div>
+        <div id ='botTotalCommands'></div>
     </div>
 
   </body>
@@ -109,6 +112,8 @@ var percent;
 var remainingXP;
 var requiredXP;
 var difference;
+var totalBotMessages;
+var totalBotCommands;
 
 $.ajax({
   type: "GET",
@@ -123,6 +128,8 @@ $.ajax({
     botNextLevel = botLevel + 1;
     botPrevLevel = botLevel - 1;
     botXP = parseInt(phpData.userxp, 10);
+    totalBotMessages = parseInt(phpData.userchar);
+    totalBotCommands = parseInt(phpData.xp);
     
     requiredXP = getXPRequired(botLevel);
     nextLevelXP = getXPRequired(botNextLevel);
@@ -188,6 +195,8 @@ remainingXP = (requiredXP - botXP);
 percent = ( currBotXP / difference) * 100;
 console.log("Percent 1 = ", percent);
 
+totalBotMessages = numberWithCommas(totalBotMessages);
+totalBotCommands = numberWithCommas(totalBotCommands);
 botXP = numberWithCommas(botXP);
 nextLevelXP = numberWithCommas(nextLevelXP);
 remainingXP = numberWithCommas(remainingXP);
@@ -238,12 +247,16 @@ document.addEventListener("DOMContentLoaded", function() {
   $('#botXPCurrent').hide();
   $('#botXPNext').hide();
   $('#botXPLeft').hide();
+  $('#botTotalMessages').hide();
+  $('#botTotalCommands').hide();
   setTimeout(function(){
         $('#xp-bar').fadeIn(1000);
         $('#account-bar-next-level').fadeIn(1000);
         $('#botXPCurrent').fadeIn(1000);
         $('#botXPNext').fadeIn(1000);
         $('#botXPLeft').fadeIn(1000);
+        $('#botTotalMessages').fadeIn(1000);
+        $('#botTotalCommands').fadeIn(1000);
         doit(percent);
     }, 3000);
     //doit();
@@ -255,6 +268,8 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("botXPCurrent").innerHTML = `Total Bot XP:    ${botXP}`;
   document.getElementById("botXPNext").innerHTML = `Next Level XP:     ${requiredXP}`;
   document.getElementById("botXPLeft").innerHTML = `Remaining XP:    ${remainingXP}`;
+  document.getElementById("botTotalMessages").innerHTML = `Total Messages:    ${totalBotMessages}`;
+  document.getElementById("botTotalCommands").innerHTML = `Total Commands:    ${totalBotCommands}`;
 
 
 //   document.addEventListener("DOMContentLoaded", function() {
