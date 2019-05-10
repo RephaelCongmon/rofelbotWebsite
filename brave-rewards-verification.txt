@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: rofel-bot-website.herokuapp.com
+Token: 56ff825720a1af2b365d8b4528d1b2882f7c22d6fb9f1ad29683cd4b457701f5
